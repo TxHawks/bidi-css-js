@@ -1,6 +1,6 @@
 {
   "name": "bidi-css-js",
-  "version": "0.0.0-semantically-released.0",
+  "version": "0.0.0-development",
   "description": "Logical, flow-ralative conversion for CSS in JS objects",
   "main": "dist/bidi-css-js.cjs.js",
   "jsnext:main": "dist/bidi-css-js.esm.js",
@@ -10,8 +10,6 @@
     "build":
       "rimraf dist && kcd-scripts build --bundle --environment BUILD_NAME:bidiCSSJS",
     "lint": "kcd-scripts lint",
-    "best":
-      "kcd-scripts test -- --transformIgnorePatterns=['[/\\\\]node_modules[/\\\\](?!.+(\\.esm)).+\\.js']",
     "test": "kcd-scripts test",
     "test:update": "npm run test -s -- --coverage --updateSnapshot",
     "validate": "kcd-scripts validate",
@@ -32,7 +30,8 @@
   "devDependencies": {
     "kcd-scripts": "^0.16.0",
     "npm-run-all": "^4.1.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "semantic-release": "^8.0.0"
   },
   "dependencies": {
     "rtl-css-js": "^1.4.2"
@@ -43,10 +42,10 @@
   "eslintIgnore": ["node_modules", "coverage", "dist"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/txhawks/bidi-css-js.git"
+    "url": "https://github.com/TxHawks/bidi-css-js.git"
   },
   "bugs": {
-    "url": "https://github.com/txhawks/bidi-css-js/issues"
+    "url": "https://github.com/TxHawks/bidi-css-js/issues"
   },
-  "homepage": "https://github.com/txhawks/bidi-css-js#readme"
+  "homepage": "https://github.com/TxHawks/bidi-css-js#readme"
 }
