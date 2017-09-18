@@ -209,17 +209,17 @@ MIT
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[build-badge]: https://img.shields.io/travis/txhawks/bidi-css-js.svg?style=flat-square
-[build]: https://travis-ci.org/txhawks/bidi-css-js
-[coverage-badge]: https://img.shields.io/codecov/c/github/txhawks/bidi-css-js.svg?style=flat-square
-[coverage]: https://codecov.io/github/txhawks/bidi-css-js
-[dependencyci-badge]: https://dependencyci.com/github/txhawks/bidi-css-js/badge?style=flat-square
-[dependencyci]: https://dependencyci.com/github/txhawks/bidi-css-js
+[build-badge]: https://img.shields.io/travis/TxHawks/bidi-css-js.svg?style=flat-square
+[build]: https://travis-ci.org/TxHawks/bidi-css-js
+[coverage-badge]: https://img.shields.io/codecov/c/github/TxHawks/bidi-css-js.svg?style=flat-square
+[coverage]: https://codecov.io/github/TxHawks/bidi-css-js
+[dependencyci-badge]: https://dependencyci.com/github/TxHawks/bidi-css-js/badge?style=flat-square
+[dependencyci]: https://dependencyci.com/github/TxHawks/bidi-css-js
 [version-badge]: https://img.shields.io/npm/v/bidi-css-js.svg?style=flat-square
 [package]: https://www.npmjs.com/package/bidi-css-js
 [downloads-badge]: https://img.shields.io/npm/dm/bidi-css-js.svg?style=flat-square
 [npm-stat]: http://npm-stat.com/charts.html?package=bidi-css-js&from=2016-04-01
 [license-badge]: https://img.shields.io/npm/l/bidi-css-js.svg?style=flat-square
-[license]: https://github.com/txhawks/bidi-css-js/blob/master/other/LICENSE
+[license]: https://github.com/TxHawks/bidi-css-js/blob/master/other/LICENSE
 [emojis]: https://github.com/kentcdodds/all-contributors#emoji-key
 [all-contributors]: https://github.com/kentcdodds/all-contributors
