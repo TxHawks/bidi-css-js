@@ -710,9 +710,61 @@ const shortTests = [
 // you can specify a modifier as a third item in the array
 const shortTestsTodo = []
 
-// put tests here where rtl-css-js should not change the input
+// put tests here where bidi-css-js should not change the input
 // unfortunately no way to add a modifier to this 😿
 const unchanged = [
+  // Don't manipulate flexbox and grid related properties
+  [{justifyContent: 'flex-start'}],
+  [{justifyContent: 'flex-end'}],
+  [{justifyContent: 'start'}],
+  [{justifyContent: 'end'}],
+  [{justifyItems: 'start'}],
+  [{justifyItems: 'end'}],
+  [{justifySelf: 'start'}],
+  [{justifySelf: 'end'}],
+  [{alignContent: 'flex-start'}],
+  [{alignContent: 'flex-end'}],
+  [{alignContent: 'start'}],
+  [{alignContent: 'end'}],
+  [{alignItems: 'flex-start'}],
+  [{alignItems: 'flex-end'}],
+  [{alignItems: 'start'}],
+  [{alignItems: 'end'}],
+  [{alignSelf: 'flex-start'}],
+  [{alignSelf: 'flex-end'}],
+  [{alignSelf: 'start'}],
+  [{alignSelf: 'end'}],
+  [{grid: '[start] "start start start" 1fr [end] / auto 50px auto'}],
+  [{gridColumnStart: 2}],
+  [{gridColumnStart: 'row1-start'}],
+  [{gridColumnEnd: 2}],
+  [{gridColumnEnd: 'row1-start'}],
+  [{gridRowStart: 2}],
+  [{gridRowStart: 'row1-start'}],
+  [{gridRowEnd: 2}],
+  [{gridRowEnd: 'end'}],
+  [{gridColumn: 'start / 4'}],
+  [{gridRow: 'start / 4'}],
+  [{gridArea: 'start'}],
+  [{gridArea: '1 / col4-start / last-line / 6'}],
+  [{gridTemplateColumns: '[start] 40px'}],
+  [{gridTemplateColumns: '[end] 40px'}],
+  [{gridTemplateRows: '[start] 40px'}],
+  [{gridTemplateRows: '[end] 40px'}],
+  [{gridTemplate: '[start] "start start start" 25px [end] / auto 50px auto'}],
+  [
+    {
+      gridTemplateAreas: `"start start start"
+    "mid mid mid"
+    "end . end"`,
+    },
+  ],
+
+  [{content: 'start'}],
+  [{content: 'end'}],
+  [{content: 'ste'}],
+  [{content: 'ets'}],
+
   [{paddingLeft: 23}],
   [{paddingRight: 23}],
   [{direction: 'ltr'}],

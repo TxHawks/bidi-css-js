@@ -54,6 +54,30 @@ const propertiesToConvert = flowRelativeDirectionMapper(
   ['borderEndEndRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'],
 )
 
+// The properties in this list either natively support flow-relative authoring
+// or should just not be touched (I'm looking at you `content`)
+const propertiesToIgnore = [
+  'justifyContent',
+  'justifyItems',
+  'justifySelf',
+  'alignContent',
+  'alignItems',
+  'alignSelf',
+  'grid',
+  'gridColumnStart',
+  'gridColumnEnd',
+  'gridRowStart',
+  'gridRowEnd',
+  'gridColumn',
+  'gridRow',
+  'gridArea',
+  'gridTemplateColumns',
+  'gridTemplateRows',
+  'gridTemplate',
+  'gridTemplateAreas',
+  'content',
+]
+
 // this is the same as the propertiesToConvert except for values
 const valuesToConvert = flowRelativeDirectionMapper(
   ['ste', 'ltr', 'rtl'],
@@ -123,10 +147,18 @@ export default function convert(object, flowDirection) {
 
   return Object.keys(object).reduce((newObj, originalKey) => {
     let originalValue = object[originalKey]
+
     if (isString(originalValue)) {
       // you're welcome to later code 😺
       originalValue = originalValue.trim()
     }
+
+    // Don't touch values that shouldn't be transformed.
+    if (propertiesToIgnore.includes(originalKey)) {
+      return {...newObj, ...{[originalKey]: originalValue}}
+    }
+
+    // Try to convert otherwise
     const {key, value} = convertProperty(originalKey, originalValue, isRtl)
     newObj[key] = value
     return newObj
