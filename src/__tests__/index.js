@@ -1,19 +1,21 @@
 /**
- * This tests a ton of cases for bidi-css-js and is based on the testing infrastructure created in `rtl-css-js`
- * Because there are so many test cases, there's a bit of an abstraction to make authoring/adding/maintaining tests a
- * little more ergonomic.
+ * This tests a ton of cases for bidi-css-js and is based on the testing infrastructure created in
+ * `rtl-css-js` Because there are so many test cases, there's a bit of an abstraction to make
+ * authoring/adding/maintaining tests a little more ergonomic.
  *
  * The main idea is the `tests` object. The other arrays ultimately get added to the tests object.
  *
- * One special thing about all this is the `balrog` modifier. If you add that modifier that basically tells the
- * abstraction to not even register the other tests with Jest. This makes it easier to focus on one or two tests.
+ * One special thing about all this is the `balrog` modifier. If you add that modifier that basically
+ * tells the abstraction to not even register the other tests with Jest. This makes it easier to
+ * focus on one or two tests.
  *
- * And we have a coverage threshold which should (hopefully) prevent you from accidentally adding a modifier that's
- * incorrect.
+ * And we have a coverage threshold which should (hopefully) prevent you from accidentally adding
+ * a modifier that's * incorrect.
  */
 
-/*eslint max-lines: ['error', 1500]*/
+/*eslint max-lines: ['error', 2000]*/
 
+/* prettier-ignore */
 import flowRelative from '../'
 
 // use this object for bigger tests
@@ -73,63 +75,63 @@ const shortTests = [
   ],
   [
     [{padding: 'logical 1px 2px 3px -4px'}],
-    {padding: '1px 2px 3px -4px'},
     {padding: '1px -4px 3px 2px'},
+    {padding: '1px 2px 3px -4px'},
   ],
   [
     [{padding: 'logical .25em 0ex 0pt 15px'}],
-    {padding: '.25em 0ex 0pt 15px'},
     {padding: '.25em 15px 0pt 0ex'},
+    {padding: '.25em 0ex 0pt 15px'},
   ],
   [
     [{padding: 'logical 1px 2% 3px 4.1grad'}],
-    {padding: '1px 2% 3px 4.1grad'},
     {padding: '1px 4.1grad 3px 2%'},
+    {padding: '1px 2% 3px 4.1grad'},
   ],
   [
     [{padding: 'logical 1px auto 3px 2px'}],
-    {padding: '1px auto 3px 2px'},
     {padding: '1px 2px 3px auto'},
+    {padding: '1px auto 3px 2px'},
   ],
   [
     [{padding: 'logical 1.1px 2.2px 3.3px 4.4px'}],
-    {padding: '1.1px 2.2px 3.3px 4.4px'},
     {padding: '1.1px 4.4px 3.3px 2.2px'},
+    {padding: '1.1px 2.2px 3.3px 4.4px'},
   ],
   [
     [{padding: 'logical 1px auto 3px inherit'}],
-    {padding: '1px auto 3px inherit'},
     {padding: '1px inherit 3px auto'},
+    {padding: '1px auto 3px inherit'},
   ],
   [
     [{padding: 'logical 1px 2px 3px 4px !important'}],
-    {padding: '1px 2px 3px 4px !important'},
     {padding: '1px 4px 3px 2px !important'},
+    {padding: '1px 2px 3px 4px !important'},
   ],
   [
     [{padding: 'logical 1px 2px 3px 4px !important'}],
-    {padding: '1px 2px 3px 4px !important'},
     {padding: '1px 4px 3px 2px !important'},
+    {padding: '1px 2px 3px 4px !important'},
   ],
   [
     [{padding: 'logical 1px 2px 3px 4px'}],
-    {padding: '1px 2px 3px 4px'},
     {padding: '1px 4px 3px 2px'},
+    {padding: '1px 2px 3px 4px'},
   ],
   [
     [{padding: 'logical 1px  2px   3px    4px'}],
-    {padding: '1px  2px   3px    4px'},
     {padding: '1px 4px 3px 2px'},
+    {padding: '1px  2px   3px    4px'},
   ],
   [
     [{padding: 'logical 1px 2px 3px 4px'}],
-    {padding: '1px 2px 3px 4px'},
     {padding: '1px 4px 3px 2px'},
+    {padding: '1px 2px 3px 4px'},
   ],
   [
     [{padding: 'logical 1px 2px 3px 4px !important', color: 'red'}],
-    {padding: '1px 2px 3px 4px !important', color: 'red'},
     {padding: '1px 4px 3px 2px !important', color: 'red'},
+    {padding: '1px 2px 3px 4px !important', color: 'red'},
   ],
   [
     [{padding: 10, direction: 'ets'}],
@@ -143,8 +145,8 @@ const shortTests = [
   ],
   [
     [{margin: 'logical 1px 2px 3px 4px'}],
-    {margin: '1px 2px 3px 4px'},
     {margin: '1px 4px 3px 2px'},
+    {margin: '1px 2px 3px 4px'},
   ],
   [[{float: 'start'}], {float: 'left'}, {float: 'right'}],
   [
@@ -321,13 +323,13 @@ const shortTests = [
   ],
   [
     [{borderColor: 'logical red green blue white'}],
-    {borderColor: 'red green blue white'},
     {borderColor: 'red white blue green'},
+    {borderColor: 'red green blue white'},
   ],
   [
     [{borderColor: 'logical red #f00 rgb(255, 0, 0) rgba(255, 0, 0, 0.5)'}],
-    {borderColor: 'red #f00 rgb(255, 0, 0) rgba(255, 0, 0, 0.5)'},
     {borderColor: 'red rgba(255, 0, 0, 0.5) rgb(255, 0, 0) #f00'},
+    {borderColor: 'red #f00 rgb(255, 0, 0) rgba(255, 0, 0, 0.5)'},
   ],
   [
     [
@@ -336,18 +338,18 @@ const shortTests = [
           'logical red #f00 hsl(0, 100%, 50%) hsla(0, 100%, 50%, 0.5)',
       },
     ],
-    {borderColor: 'red #f00 hsl(0, 100%, 50%) hsla(0, 100%, 50%, 0.5)'},
     {borderColor: 'red hsla(0, 100%, 50%, 0.5) hsl(0, 100%, 50%) #f00'},
+    {borderColor: 'red #f00 hsl(0, 100%, 50%) hsla(0, 100%, 50%, 0.5)'},
   ],
   [
     [{borderWidth: 'logical 1px 2px 3px 4px'}],
-    {borderWidth: '1px 2px 3px 4px'},
     {borderWidth: '1px 4px 3px 2px'},
+    {borderWidth: '1px 2px 3px 4px'},
   ],
   [
     [{borderStyle: 'logical none dotted dashed solid'}],
-    {borderStyle: 'none dotted dashed solid'},
     {borderStyle: 'none solid dashed dotted'},
+    {borderStyle: 'none dotted dashed solid'},
   ],
   [
     [{borderTopStartRadius: 0}],
@@ -371,43 +373,43 @@ const shortTests = [
   ],
   [
     [{borderRadius: 'logical 1px 2px'}],
-    {borderRadius: '1px 2px'},
     {borderRadius: '2px 1px'},
+    {borderRadius: '1px 2px'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px 4px'}],
-    {borderRadius: '1px 2px 3px 4px'},
     {borderRadius: '2px 1px 4px 3px'},
+    {borderRadius: '1px 2px 3px 4px'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px 4px'}],
-    {borderRadius: '1px 2px 3px 4px'},
     {borderRadius: '2px 1px 4px 3px'},
+    {borderRadius: '1px 2px 3px 4px'},
   ],
   [
     [{borderRadius: 'logical 15px / 0 20px'}],
-    {borderRadius: '15px / 0 20px'},
     {borderRadius: '15px / 20px 0'},
+    {borderRadius: '15px / 0 20px'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px 4px / 5px 6px 7px 8px'}],
-    {borderRadius: '1px 2px 3px 4px / 5px 6px 7px 8px'},
     {borderRadius: '2px 1px 4px 3px / 6px 5px 8px 7px'},
+    {borderRadius: '1px 2px 3px 4px / 5px 6px 7px 8px'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px 4px !important'}],
-    {borderRadius: '1px 2px 3px 4px !important'},
     {borderRadius: '2px 1px 4px 3px !important'},
+    {borderRadius: '1px 2px 3px 4px !important'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px 4px'}],
-    {borderRadius: '1px 2px 3px 4px'},
     {borderRadius: '2px 1px 4px 3px'},
+    {borderRadius: '1px 2px 3px 4px'},
   ],
   [
     [{borderRadius: 'logical 1px 2px 3px calc(calc(2*2) * 3px)'}],
-    {borderRadius: '1px 2px 3px calc(calc(2*2) * 3px)'},
     {borderRadius: '2px 1px calc(calc(2*2) * 3px) 3px'},
+    {borderRadius: '1px 2px 3px calc(calc(2*2) * 3px)'},
   ],
   [
     [{background: 'logical url(/foo/bar.png) start top'}],

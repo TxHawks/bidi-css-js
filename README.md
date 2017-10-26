@@ -34,6 +34,19 @@ It will convert, for instance, `paddingStart` to either `paddingLeft` or `paddin
 It is important to note that this package is not a true polyfill for the proposal, as all start and end properties (and so on) are converted to left or right values (etc.), and will not automatically flip when the  flow direction of the element, inherited or otherwise is changes in by the html `dir` attribute or the 
 `direction` css property.
 
+#### Four directional shorthand properties
+
+The proposal alters the way values for four-directional shorthand properties (`padding`, `margin`, etc.) 
+are written when using the `logical` keyword.
+
+The values of four-directional shorthand properties, _without_ the `logical` keyword are written 
+ clock-wise: `top`, `right`, `bottom` and `left`. While in `ltr` mode, that would translate to 
+ `block-start`, `inline-end`, `block-end` and `inline-start`. However, under the new spec, when the 
+ `logical` keyword is used, values order is interpreted as `block-start`, `inline-start`, `block-end` 
+ and `inline-end`.
+
+ Earlier versions of this library got this wrong, and it was corrected in version `2.0.0`
+
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with 
@@ -130,10 +143,10 @@ When the `logical` keyword is present in the value, the values that follow are a
 ```js
 bidiCSSJS({
   margin: 'logical 0 10px 0 20px'
-}, 'rtl'); // => { margin: '0 20px 0 10px' }
+}, 'rtl'); // => { margin: '0 10px 0 20px' }
 bidiCSSJS({
   margin: 'logical 0 10px 0 20px'
-}, 'ltr'); // => { margin: '0 10px 0 20px' }
+}, 'ltr'); // => { margin: '0 20px 0 10px' }
 ```
 
 
@@ -189,6 +202,9 @@ Same as `rtl-css-js`:
 
 This library falls short of a polyfill, and does not accommodate for dynamic changes in the flow direction. 
 [See here](#not-a-polyfill)
+
+While not actually a real caveat, it is worth noting that the proposal changes the way four-directional 
+shorthand properties are evaluated. [see here](#four-directional-shorthand-properties)
 
 ### `background`
 

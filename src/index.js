@@ -1,4 +1,5 @@
 import {
+  includes,
   isNumber,
   isObject,
   isString,
@@ -221,11 +222,47 @@ function getValueDoppelganger(key, originalValue, isRtl) {
     return originalValue
   }
 
-  if (isLogical && !isRtl && !key.match('background')) {
+  const isFourDirectionalShorthand = includes(
+    [
+      'margin',
+      'padding',
+      'borderColor',
+      'borderRadius',
+      'borderStyle',
+      'borderWidth',
+    ],
+    key,
+  )
+
+  if (
+    isLogical &&
+    !isRtl &&
+    !isFourDirectionalShorthand &&
+    !key.match('background')
+  ) {
     return logicallessValue
   }
 
   const conversionMap = valuesToConvert[flowDirection]
+
+  // The logical props and values changes the default way you write four-directional shorhands
+  // so that the order of values is `block-start`, `inline-start`, `block-end` and `inline-end`, which,
+  // for the `inline-*` sides, is the opposite of how they are written without the `logical` keyword
+  if (isLogical && isFourDirectionalShorthand) {
+    return isRtl
+      ? logicallessValue
+      : convertValues(
+          key,
+          importantlessValue,
+          conversionMap,
+          isImportant,
+          // Reversing `isRtl` like this is crooked, but for the time being, it is the easiest way to
+          // address how values of four-directional shorthand properties with the `logical` keyword
+          // should be handled according to the spec.
+          !isRtl,
+        )
+  }
+
   return convertValues(
     key,
     importantlessValue,
