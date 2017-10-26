@@ -675,14 +675,34 @@ const shortTests = [
     {transform: 'translateX(-30%)'},
   ],
   [
+    [{transform: 'logical rotate(30%)'}],
+    {transform: 'rotate(30%)'},
+    {transform: 'rotate(-30%)'},
+  ],
+  [
+    [{transform: 'logical rotateY(30%)'}],
+    {transform: 'rotateY(30%)'},
+    {transform: 'rotateY(-30%)'},
+  ],
+  [
+    [{transform: 'logical rotateZ(30%)'}],
+    {transform: 'rotateZ(30%)'},
+    {transform: 'rotateZ(-30%)'},
+  ],
+  [
+    [{transform: 'logical rotateX(30%)'}],
+    {transform: 'rotateX(30%)'},
+    {transform: 'rotateX(30%)'},
+  ],
+  [
     [{transform: 'logical translateY(30px) rotate(20deg) translateX(10px)'}],
     {transform: 'translateY(30px) rotate(20deg) translateX(10px)'},
-    {transform: 'translateY(30px) rotate(20deg) translateX(-10px)'},
+    {transform: 'translateY(30px) rotate(-20deg) translateX(-10px)'},
   ],
   [
     [{transform: 'logical translateX(30px) rotate(20deg) translateY(10px)'}],
     {transform: 'translateX(30px) rotate(20deg) translateY(10px)'},
-    {transform: 'translateX(-30px) rotate(20deg) translateY(10px)'},
+    {transform: 'translateX(-30px) rotate(-20deg) translateY(10px)'},
   ],
   [
     [{transform: 'logical translate3d(30%, 20%, 10%)'}],
