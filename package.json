@@ -28,6 +28,8 @@
   "author": "TxHawks <TofuxHawks@gmail.com> (https://githb.com/TxHawks)",
   "license": "MIT",
   "devDependencies": {
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
     "kcd-scripts": "^0.16.0",
     "npm-run-all": "^4.1.1",
     "rimraf": "^2.6.2"
@@ -46,5 +48,10 @@
   "bugs": {
     "url": "https://github.com/TxHawks/bidi-css-js/issues"
   },
-  "homepage": "https://github.com/TxHawks/bidi-css-js#readme"
+  "homepage": "https://github.com/TxHawks/bidi-css-js#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
