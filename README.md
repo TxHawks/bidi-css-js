@@ -29,6 +29,11 @@ It is a function with accepts two arguments: a CSS-in-JS object, and a string in
 
 It will convert, for instance, `paddingStart` to either `paddingLeft` or `paddingRight`, as well as all other properties where it makes sense to do so, depending on the provided `flowDirection`
 
+#### Not a polyfill
+
+It is important to note that this package is not a true polyfill for the proposal, as all start and end properties (and so on) are converted to left or right values (etc.), and will not automatically flip when the  flow direction of the element, inherited or otherwise is changes in by the html `dir` attribute or the 
+`direction` css property.
+
 ## Installation
 
 This module is distributed via [npm][npm] which is bundled with 
@@ -181,6 +186,9 @@ In properties that _do not accept the `logical` keword_ , values containing the 
 ## Caveats
 
 Same as `rtl-css-js`:
+
+This library falls short of a polyfill, and does not accommodate for dynamic changes in the flow direction. 
+[See here](#not-a-polyfill)
 
 ### `background`
 
