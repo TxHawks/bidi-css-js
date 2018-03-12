@@ -1,6 +1,6 @@
 {
   "name": "bidi-css-js",
-  "version": "0.0.0-development",
+  "version": "2.1.0",
   "description": "Logical, flow-ralative conversion for CSS in JS objects",
   "main": "dist/bidi-css-js.cjs.js",
   "jsnext:main": "dist/bidi-css-js.esm.js",
