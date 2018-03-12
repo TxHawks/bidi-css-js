@@ -113,6 +113,9 @@ const canHaveLogical = [
   'transform',
   'mozTransform',
   'webkitTransform',
+  'transformOrigin',
+  'mozTransformOrigin',
+  'webkitTransformOrigin',
 ]
 
 // This regex is used to replace _every_ instance of `ste`, `ets`, `start`,
@@ -193,6 +196,9 @@ function getPropertyDoppelganger(property, isRtl) {
   return convertedProperty || property
 }
 
+// let's try to keep the complexity down...
+// If we have to do this much more, let's break this up
+/* eslint-disable complexity */
 /**
  * Logically converts the given value to the correct version based on the key and flow direction context
  * @param {String} key this is the key (note: this should be the RTL version of the originalKey)
@@ -201,12 +207,12 @@ function getPropertyDoppelganger(property, isRtl) {
  * @return {String|Number|Object} the converted value
  */
 function getValueDoppelganger(key, originalValue, isRtl) {
-  /* eslint complexity:[2, 8] */ // let's try to keep the complexity down... If we have to do this much more, let's break this up
   if (isNullOrUndefined(originalValue)) {
     return originalValue
   }
 
   const flowDirection = isRtl ? 'rtl' : 'ltr'
+
   if (isObject(originalValue)) {
     return convert(originalValue, flowDirection) // recurssion 🌀
   }
@@ -238,7 +244,7 @@ function getValueDoppelganger(key, originalValue, isRtl) {
     isLogical &&
     !isRtl &&
     !isFourDirectionalShorthand &&
-    !key.match('background')
+    !key.match(/(background)|((t|T)ransformOrigin)/)
   ) {
     return logicallessValue
   }
@@ -271,6 +277,7 @@ function getValueDoppelganger(key, originalValue, isRtl) {
     isRtl,
   )
 }
+/* eslint-enable complexity */
 
 function analyzeOriginalValue(originalValue) {
   const isNum = isNumber(originalValue)

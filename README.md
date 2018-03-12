@@ -176,6 +176,12 @@ For convinience, the library also transforms the following properties in a simil
 | `transform` | `logical translate3d(30%, 20%, 10%)` | `translate3d(30%, 20%, 10%)` | `translate3d(-30%, 20%, 10%)` | Currently only operates on `translate[X]` |
 | `mozTransform` | See `transform` | -- | -- | -- |
 | `webkitTransform` | See `transform` | -- | -- | -- |
+| `transformOrigin` | `logical start top` | `left top` | `right top` | -- |
+| `transformOrigin` | `logical 77% 40%` | `77% 40%` | `23% 40%` | -- |
+| `mozTransformOrigin` | `logical start top` | `left top` | `right top` | -- |
+| `mozTransformOrigin` | `logical 77% 40%` | `77% 40%` | `23% 40%` | -- |
+| `webkitTransformOrigin` | `logical start top` | `left top` | `right top` | -- |
+| `webkitTransformOrigin` | `logical 77% 40%` | `77% 40%` | `23% 40%` | -- |
 
 #### Flow-relative values:
 

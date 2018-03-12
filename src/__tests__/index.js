@@ -726,6 +726,31 @@ const shortTests = [
     {mozTransform: 'translateX(30px)'},
     {mozTransform: 'translateX(-30px)'},
   ],
+  [
+    [{transformOrigin: 'logical start top'}],
+    {transformOrigin: 'left top'},
+    {transformOrigin: 'right top'},
+  ],
+  [
+    [{transformOrigin: 'logical end top'}],
+    {transformOrigin: 'right top'},
+    {transformOrigin: 'left top'},
+  ],
+  [
+    [{transformOrigin: 'logical 77% 40%'}],
+    {transformOrigin: '77% 40%'},
+    {transformOrigin: '23% 40%'},
+  ],
+  [
+    [{webkitTransformOrigin: 'logical start top'}],
+    {webkitTransformOrigin: 'left top'},
+    {webkitTransformOrigin: 'right top'},
+  ],
+  [
+    [{mozTransformOrigin: 'logical end top'}],
+    {mozTransformOrigin: 'right top'},
+    {mozTransformOrigin: 'left top'},
+  ],
 ]
 
 // put short tests that should be skipped here
@@ -990,6 +1015,9 @@ const unchanged = [
   [{webkitTransform: 'translateX(-30px)'}],
   [{mozTransform: 'translateX(30px)'}],
   [{mozTransform: 'translateX(-30px)'}],
+  [{transformOrigin: 'left top'}],
+  [{webkitTransformOrigin: 'left top'}],
+  [{mozTransformOrigin: 'left top'}],
   [{}],
   [{textAlign: 'center'}],
   [{opacity: 0}],
