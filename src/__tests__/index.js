@@ -233,9 +233,19 @@ const shortTests = [
     {webkitBoxShadow: '1px 2px 3px 3px red'},
   ],
   [
+    [{WebkitBoxShadow: 'logical -1px 2px 3px 3px red'}],
+    {WebkitBoxShadow: '-1px 2px 3px 3px red'},
+    {WebkitBoxShadow: '1px 2px 3px 3px red'},
+  ],
+  [
     [{mozBoxShadow: 'logical -1px 2px 3px 3px red'}],
     {mozBoxShadow: '-1px 2px 3px 3px red'},
     {mozBoxShadow: '1px 2px 3px 3px red'},
+  ],
+  [
+    [{MozBoxShadow: 'logical -1px 2px 3px 3px red'}],
+    {MozBoxShadow: '-1px 2px 3px 3px red'},
+    {MozBoxShadow: '1px 2px 3px 3px red'},
   ],
   [[{borderStart: 0}], {borderLeft: 0}, {borderRight: 0}],
   [
@@ -722,9 +732,19 @@ const shortTests = [
     {webkitTransform: 'translateX(-30px)'},
   ],
   [
+    [{WebkitTransform: 'logical translateX(30px)'}],
+    {WebkitTransform: 'translateX(30px)'},
+    {WebkitTransform: 'translateX(-30px)'},
+  ],
+  [
     [{mozTransform: 'logical translateX(30px)'}],
     {mozTransform: 'translateX(30px)'},
     {mozTransform: 'translateX(-30px)'},
+  ],
+  [
+    [{MozTransform: 'logical translateX(30px)'}],
+    {MozTransform: 'translateX(30px)'},
+    {MozTransform: 'translateX(-30px)'},
   ],
   [
     [{transformOrigin: 'logical start top'}],
@@ -747,9 +767,19 @@ const shortTests = [
     {webkitTransformOrigin: 'right top'},
   ],
   [
+    [{WebkitTransformOrigin: 'logical start top'}],
+    {WebkitTransformOrigin: 'left top'},
+    {WebkitTransformOrigin: 'right top'},
+  ],
+  [
     [{mozTransformOrigin: 'logical end top'}],
     {mozTransformOrigin: 'right top'},
     {mozTransformOrigin: 'left top'},
+  ],
+  [
+    [{MozTransformOrigin: 'logical end top'}],
+    {MozTransformOrigin: 'right top'},
+    {MozTransformOrigin: 'left top'},
   ],
 ]
 
@@ -870,8 +900,12 @@ const unchanged = [
   [{boxShadow: '1px 2px 3px 3px red'}],
   [{webkitBoxShadow: '-1px 2px 3px 3px red'}],
   [{webkitBoxShadow: '1px 2px 3px 3px red'}],
+  [{WebkitBoxShadow: '-1px 2px 3px 3px red'}],
+  [{WebkitBoxShadow: '1px 2px 3px 3px red'}],
   [{mozBoxShadow: '-1px 2px 3px 3px red'}],
   [{mozBoxShadow: '1px 2px 3px 3px red'}],
+  [{MozBoxShadow: '-1px 2px 3px 3px red'}],
+  [{MozBoxShadow: '1px 2px 3px 3px red'}],
   [{borderLeft: 0}],
   [{borderRight: 0}],
   [{borderLeft: '1px solid red'}],
@@ -1015,9 +1049,15 @@ const unchanged = [
   [{webkitTransform: 'translateX(-30px)'}],
   [{mozTransform: 'translateX(30px)'}],
   [{mozTransform: 'translateX(-30px)'}],
+  [{WebkitTransform: 'translateX(30px)'}],
+  [{WebkitTransform: 'translateX(-30px)'}],
+  [{MozTransform: 'translateX(30px)'}],
+  [{MozTransform: 'translateX(-30px)'}],
   [{transformOrigin: 'left top'}],
   [{webkitTransformOrigin: 'left top'}],
   [{mozTransformOrigin: 'left top'}],
+  [{WebkitTransformOrigin: 'left top'}],
+  [{MozTransformOrigin: 'left top'}],
   [{}],
   [{textAlign: 'center'}],
   [{opacity: 0}],

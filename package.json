@@ -1,6 +1,6 @@
 {
   "name": "bidi-css-js",
-  "version": "2.1.0",
+  "version": "0.0.0-development",
   "description": "Logical, flow-ralative conversion for CSS in JS objects",
   "main": "dist/bidi-css-js.cjs.js",
   "jsnext:main": "dist/bidi-css-js.esm.js",
@@ -35,7 +35,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "rtl-css-js": "^1.4.2"
+    "rtl-css-js": "^1.9.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
